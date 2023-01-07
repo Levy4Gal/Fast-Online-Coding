@@ -1,20 +1,12 @@
-import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import {useSelector,useDispatch} from 'react-redux';
-import { mentorIn } from '../actions';
-
 const CodeBlockDetails = (props) => {
-
-    const mentorConnect = useSelector(state=>state.isConnect)
-    const dispatch = useDispatch()
 
     const navigate = useNavigate()
     let bool = null
     let id = "" 
 
     const handleClick = () => {  
-        dispatch(mentorIn())
 
         fetchMentorConnected()
         props.setTitle(props.codeBlock.title)
