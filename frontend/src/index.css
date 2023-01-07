@@ -1,0 +1,104 @@
+/* google font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
+
+/* layout */
+:root {
+  --primary: #1aac83;
+  --error: #e7195a;
+}
+body {
+  background: #666565;
+  margin: 0;
+  font-family: "Poppins";
+}
+header {
+  background: #fff;
+}
+
+header a {
+  color: #333;
+  text-decoration: none;
+}
+.pages {
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+  width: 85%;
+}
+
+.lobbyPage {
+  display: block;
+  /* margin-left: auto; */
+  margin-right: auto;
+  width: 80%;
+  /* display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 100px; */
+}
+
+.codeBlock-details {
+  background: rgb(216, 211, 211);
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+.codeBlock-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: #956fc4;
+}
+.codeBlock-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.codeBlock-details pre{
+  background-color: #cfc3c3;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: monospace;
+  padding: 8px;
+}
+.codeBlock-details textarea {
+  background-color: #cfc3c3;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: monospace;
+  padding: 8px;
+  resize: none;
+  width: 95%;
+  height: 300px;
+}
+.textarea p{
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.title{
+  color:cadetblue;
+  width: 85%;
+  margin: auto;
+}
+.backBtn {
+  font-size: small;
+  margin: 10px;
+  padding: 3px 3px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 50% auto;
+  color: white;
+  border-radius: 10px;
+  border: 0px;
+  font-weight: 100;
+  box-shadow: 0px 0px 14px -7px #2fe0ff;
+  background-image: linear-gradient(45deg, #9759e4 0%, #9759e4  51%, #74cfdf  100%);
+  cursor: pointer;
+  user-select: none;
+}
+.backBtn:hover {
+  background-position: right center;
+  color: #fff;
+}
+
