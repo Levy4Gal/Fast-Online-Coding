@@ -3,17 +3,24 @@ import { useNavigate } from 'react-router-dom';
 const CodeBlockDetails = (props) => {
 
     const navigate = useNavigate()
+
     let bool = null
     let id = "" 
 
+    //when the user clicks on any code block 
     const handleClick = () => {  
-
+        
+        //fire GET requst and some more statments
         fetchMentorConnected()
+
+        //sets the values of codeBlock in props for mentor/student
         props.setTitle(props.codeBlock.title)
         props.setCode(props.codeBlock.code)
     };
 
     const fetchMentorConnected = async ()  =>{
+
+        //GET requst from db to check if mentor is already connected
         const response = await fetch('/api/mentor')
         const json = await response.json()
         const singleItem = json[0]
@@ -22,14 +29,20 @@ const CodeBlockDetails = (props) => {
             id = singleItem._id
 
             if(!bool){
+
+                //if mentor didn't connected yet --> navigate to mentor page 
+                //and update the db
                 updateMentorConnected()
                 navigate('/mentorPage')
             }else{
+
+                //if mentor already connected --> navigate to student page
                 navigate('/studentPage')
             }
         }
     }
 
+    //PATCH request to db --> to update that the mentor is connected
     const updateMentorConnected = async ()=>{
         const isConnected = true
         const item = {isConnected}
@@ -43,7 +56,7 @@ const CodeBlockDetails = (props) => {
         const json = await response.json()
 
         if(response.ok){
-            console.log("yesssssssssss")
+            console.log("response is OK")
         }
     }
 
@@ -55,51 +68,3 @@ const CodeBlockDetails = (props) => {
 };
 
 export default CodeBlockDetails
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const handleClick = async () => {
-//     const response = await fetch("/api/items/" + props.item._id, {
-//       method: "DELETE",
-//     });
-//     const json = await response.json();
-
-//     if (response.ok) {
-//       dispatch({ type: "DELETE_ITEM", payload: json });
-//     }
-
-
-
-// if(!booleanValue){
-        //     navigate('/mentorPage')
-        //     fetch('/boolean-endpoint', {
-        //         method: 'POST',
-        //         body: JSON.stringify({ booleanValue: true }),
-        //         headers: { 'Content-Type': 'application/json' },
-        //       })
-        //         .then(response => response.json())
-        //         .then(booleanValue => setBooleanValue(booleanValue));
-        // }
-        // else{
-        //     navigate('/studentPage')
-        // }
-
-
-
-        // useEffect(() => {
-    //     fetch('/boolean-endpoint')
-    //       .then(response => response.json())
-    //       .then(booleanValue => setBooleanValue(booleanValue));
-    //   }, []);

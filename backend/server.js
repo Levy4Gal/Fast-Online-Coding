@@ -3,6 +3,8 @@ const mongoose = require('mongoose')
 mongoose.set('strictQuery', false)
 
 const express = require ('express')
+
+//routes for db
 const codeBlocksRoutes = require('./routes/codeBlocksRoutes.js')
 const mentorConnected = require('./routes/mentorConnectedRoutes.js')
 
@@ -39,24 +41,6 @@ mongoose.connect(process.env.MONGO_URI)
     console.log(err)
 })
 
-
-
-//featch 
-// let booleanValue = false;
-// app.get('/boolean-endpoint', (req, res) => {
-//     res.json(booleanValue);
-//   });
-
-// app.post('/boolean-endpoint', (req, res) => {
-//     booleanValue = req.body.booleanValue;
-//     res.json(booleanValue);
-//   });
-
-// app.listen(3000, () => {
-//     console.log('Server listening on port 3000');
-//   });
-
-
 //socket.io
 app.use(cors())
     const server = http.createServer(app);
@@ -68,6 +52,7 @@ app.use(cors())
         },
     })
     
+    //listen for writing to socket from client && brodcast to other client
     io.on("connection",(socket)=>{
         console.log(`user connected: ${socket.id}`)
         socket.on("modify_code" ,(data)=>{

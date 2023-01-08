@@ -1,12 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 
+//socket.io client
 import io from 'socket.io-client'
 const socket = io.connect("http://localhost:3001")
 
 const StudentPage = (props)=>{
     const [message,setMessage] = useState("")
 
+    //for every click on the keyboard write to socket
     const handleCodeChange =event=>{
         setMessage(event.target.value)
         socket.emit("modify_code", {message})

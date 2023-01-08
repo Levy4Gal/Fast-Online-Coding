@@ -7,10 +7,13 @@ import MentorPage from "./pages/MentorPage"
 import StudentPage from "./pages/StudentPage"
 
 function App() {
+  
   const [title,setTitle] = useState("")
   const [code,setCode] = useState("")
+
   const[codeBlockArr , setcodeBlockArr] = useState([])
   const[isConnected, setIsConnected] = useState(null)
+
   return (
     <div className="App">
       <BrowserRouter>
